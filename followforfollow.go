@@ -17,10 +17,12 @@ func main() {
 	url_gh_following := "https://api.github.com/user/following?per_page=100"
 	gh_pat, err := os.ReadFile(os.ExpandEnv("$KEYS/gh-PAT"))
 	if err != nil {
-		panic(err)
+		gh_pat = []byte(os.Getenv("GH_PAT"))
 	}
 	token := strings.TrimSpace(string(gh_pat))
-
+	if token == "" {
+		panic("GitHub token not found in environment variable GH_PAT or in $KEYS/gh-PAT file")
+	}
 	// GITHUB API REQ
 	req, _ := http.NewRequest("GET", url_gh_followers, nil)
 	req1, _ := http.NewRequest("GET", url_gh_following, nil)

@@ -1,7 +1,7 @@
 name: Follow for Follow
 on:
   schedule:
-    - cron: "59 14 * * *" # every day at 9:59 AM EST
+    - cron: "45 15 * * *" # every day at 15:45 Universal or 10:45 Eastern
     - cron: "0 */6 * * *" # * * * * * <- min hour day month dayOfWeek then your cmd (this is every 6 hours so 0000, 0600, 1200, 1800 UTC)
   workflow_dispatch:
 jobs:
