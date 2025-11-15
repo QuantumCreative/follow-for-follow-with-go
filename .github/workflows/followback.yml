@@ -1,5 +1,8 @@
 name: Follow for Follow
 on:
+  push:
+    branches:
+      - main
   schedule:
     - cron: "29 16 * * *"
     - cron: "0 */6 * * *" # * * * * * <- min hour day month dayOfWeek then your cmd (this is every 6 hours so 0000, 0600, 1200, 1800 UTC)
