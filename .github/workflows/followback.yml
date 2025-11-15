@@ -1,0 +1,16 @@
+name: Follow for Follow
+on:
+  schedule:
+    - cron: "0 */6 * * *" # * * * * * <- min hour day month dayOfWeek then your cmd (mine is every 6 hours)
+  workflow_dispatch:
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-go@latest
+        with:
+          go-version: "1.22"
+      - run: go run followforfollow.go
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
