@@ -1,1 +1,1 @@
-**I got API stuff working. Currently woking on diff logic**
+**follow-for-follow made easy with golang**
